@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>Калькулятор</title>
+      <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+      <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+
+      
+  </head>
+  <body>
+
+
+
+<form enctype="multipart/form-data" method="post">
+   <p><input id="zn1" type="file" name="f">
+   <input  type="submit" value="Отправить"></p>
+  </form> 
+      
+    <h1>Сравнение адресов</h1>
+    <p>Введите значения первой колонки</p>
+    <td>
+       <br><textarea  name="list1" placeholder="Вставьте/вставьте сюда список имен"></textarea>
+    </td>
+    
+
+    <p>Введите значение второй колонки</p>
+    <td>
+       <br><textarea id="zn1" name="list1" placeholder="Вставьте/вставьте сюда список имен"></textarea>
+    </td>
+      
+    <button py-click="translate_english">Расчет</button>
+      
+    <div id="output"></div>
+    <div id="output2"></div>
+    <script type="py" src="./main.py" config="./pyscript.json"></script>
+  </body>
+</html>
