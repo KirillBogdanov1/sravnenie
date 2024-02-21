@@ -5,20 +5,28 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       <title>Калькулятор</title>
-      <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+      <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
       <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 
+      <py-env>
+            - pandas
+            - requests
+            - beautifulsoup4
+      </py-env>
 
+      
       
   </head>
   <body>
+    <?php
+        include '1.php';
+    ?>
 
 
-
-<form enctype="multipart/form-data" method="post">
-   <p><input id="zn1" type="file" name="f">
-   <input  type="submit" value="Отправить"></p>
-  </form> 
+  <form action="/adress1.xlsx" method="post" enctype="multipart/form-data">
+	  <input type="file" name="file">
+	  <input type="submit" value="Отправить">
+  </form>
       
     <h1>Сравнение адресов</h1>
     <p>Введите значения первой колонки</p>
