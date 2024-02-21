@@ -1,8 +1,8 @@
+
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from pyscript import document
-
 
 
 
@@ -17,7 +17,7 @@ def translate_english(event):
     zn1 = input_text.value
 
 
-    excel_data_df = pd.read_excel('C:/fakepath/adress1xlsx',index_col=None)
+    excel_data_df = pd.read_excel('./adress1.xlsx',index_col=None)
     dfs = []
     add111=0
     k=0
