@@ -24,8 +24,10 @@
 
        <textarea class="layer2" id="zn2" name="list1"  cols="60" rows="5" placeholder="вставьте второй список адресов"></textarea>
     </td>
-      
-    <button py-click="translate_english">Загрузка данных</button>
+    <button py-click="translate_english1">Время сравнения в минутах</button>      
+    <div id="output5" ></div>
+    <button py-click="translate_english">Обработка данных</button>
+    <div id="output4" ></div>
     <button style="float: left"onclick="func()">Вывод результатов</button> 
     <div id="output1" style="display: none;"></div>
     <div id="output2" style="display: none;"></div>
@@ -55,9 +57,10 @@
         parentElement.innerHTML = '';
         var e1 = document.getElementById("output1");
         var txt1 = e1.textContent || e1.innerText;
-        txtt1 =  txt1.replace("[", '');
-        txttt1 =  txtt1.replace("]", ''); 
-        var  t1factnew= txttt1.split(', ');
+        txtt1 =  txt1.replace("['", '');
+        txttt1 =  txtt1.replace("']", ''); 
+
+        var  t1factnew= txttt1.split(/\', '/);
                 
         let len = t1factnew.length;       
 
@@ -71,9 +74,11 @@
 
         var e3 = document.getElementById("output3");
         var txt3 = e3.textContent || e3.innerText;
-        txtt3 =  txt3.replace("[", '');
-        txttt3 =  txtt3.replace("]", ''); 
-        var  t3factnew= txttt3.split(', ');
+        txtt3 =  txt3.replace("['", '');
+        txttt3 =  txtt3.replace("']", ''); 
+
+        var  t3factnew= txttt3.split(/\', '/);
+
         
         for (let i = 0; i < len; i++) {
             document.getElementById("result1").innerHTML = t1factnew[i]; 
@@ -86,6 +91,7 @@
           ad1.textContent =t1factnew[i] ;
           sovpad.textContent = t2factnew[i];
           ad2.textContent =t3factnew[i] ;
+
 
           row.append(ad1, sovpad,ad2);
           document.getElementById("z").appendChild(row);
@@ -102,7 +108,6 @@
 
   </body>
 </html>
-
 
 
 
