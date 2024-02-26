@@ -1,97 +1,111 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+      <link rel="stylesheet" href="styles.css">
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       <title>Калькулятор</title>
       <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
       <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
       <script src="./jquery-3.6.3.js" ></script>
-      <py-env>
-            - pandas
-            - requests
-            - beautifulsoup4
-      </py-env>
+      <script src="compiled.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-    <script>
-      function updateSize() {
-        var nBytes = 0,
-          oFiles = document.getElementById("uploadInput").files,
-          nFiles = oFiles.length;
-        for (var nFileId = 0; nFileId < nFiles; nFileId++) {
-          nBytes += oFiles[nFileId].size;
-        }
-        var sOutput = nBytes + " bytes";
-        // optional code for multiples approximation
-        for (
-          var aMultiples = [
-              "KiB",
-              "MiB",
-              "GiB",
-              "TiB",
-              "PiB",
-              "EiB",
-              "ZiB",
-              "YiB",
-            ],
-            nMultiple = 0,
-            nApprox = nBytes / 1024;
-          nApprox > 1;
-          nApprox /= 1024, nMultiple++
-        ) {
-          sOutput =
-            nApprox.toFixed(3) +
-            " " +
-            aMultiples[nMultiple] +
-            " (" +
-            nBytes +
-            " bytes)";
-        }
-        // end of optional code
-        document.getElementById("fileNum").innerHTML = nFiles;
-        document.getElementById("fileSize").innerHTML = sOutput;
-      }
-    </script>     
+   
   </head>
   <body>
 
-
-
-    <form name="uploadForm">
-      <p>
-        <input
-          id="uploadInput"
-          type="file"
-          name="myFiles"
-          onchange="updateSize();"
-          multiple />
-        selected files: <span id="fileNum">0</span>; total size:
-        <span id="fileSize">0</span>
-      </p>
-      <p><input type="submit" value="Send file" /></p>
-    </form>
-      
+  
     <h1>Сравнение адресов</h1>
-    <p>Введите значения первой колонки</p>
-    <td>
-       <br><textarea  name="list1" placeholder="Вставьте/вставьте сюда список имен"></textarea>
-    </td>
-    
 
-    <p>Введите значение второй колонки</p>
-    <td>
-       <br><textarea id="zn1" name="list1" placeholder="Вставьте/вставьте сюда список имен"></textarea>
+    <td id="container">
+       <br><textarea class="layer1" id="zn1" name="list1"  cols="60" rows="5" placeholder="вставьте первый список адресов"></textarea>
+
+       <textarea class="layer2" id="zn2" name="list1"  cols="60" rows="5" placeholder="вставьте второй список адресов"></textarea>
     </td>
       
-    <button py-click="translate_english">Расчет</button>
+    <button py-click="translate_english">Загрузка данных</button>
+    <button style="float: left"onclick="func()">Вывод результатов</button> 
+    <div id="output1" style="display: none;"></div>
+    <div id="output2" style="display: none;"></div>
+    <div id="output3" style="display: none;"></div>
+    <div id="result1" style="display: none;"></div>
+    <div class="mann">
+      <table id="zZ" style="float: left">
+
+        <TH >Адрес 1</TH> 
+        <TH >Точность совпадения</TH> 
+        <TH >Адрес 2</TH> 
+
+      </table>
+    <table id="z" style="float: left">
+    </table>
+    </div>
       
-    <div id="output"></div>
-    <div id="output2"></div>
     <script type="py" src="./main.py" config="./pyscript.json"></script>
+
+
+      
+    <script>
+
+
+            function func() {
+        const parentElement = document.getElementById('z');
+        parentElement.innerHTML = '';
+        var e1 = document.getElementById("output1");
+        var txt1 = e1.textContent || e1.innerText;
+        txtt1 =  txt1.replace("[", '');
+        txttt1 =  txtt1.replace("]", ''); 
+        var  t1factnew= txttt1.split(', ');
+                
+        let len = t1factnew.length;       
+
+
+                
+        var e2 = document.getElementById("output2");
+        var txt2 = e2.textContent || e2.innerText;
+        txtt2 =  txt2.replace("[", '');
+        txttt2 =  txtt2.replace("]", ''); 
+        var  t2factnew= txttt2.split(', ');
+
+        var e3 = document.getElementById("output3");
+        var txt3 = e3.textContent || e3.innerText;
+        txtt3 =  txt3.replace("[", '');
+        txttt3 =  txtt3.replace("]", ''); 
+        var  t3factnew= txttt3.split(', ');
+        
+        for (let i = 0; i < len; i++) {
+            document.getElementById("result1").innerHTML = t1factnew[i]; 
+
+          row = document.createElement("TR");
+          ad1 = document.createElement("TD");
+          sovpad = document.createElement("TD");
+          ad2 = document.createElement("TD");
+
+          ad1.textContent =t1factnew[i] ;
+          sovpad.textContent = t2factnew[i];
+          ad2.textContent =t3factnew[i] ;
+
+          row.append(ad1, sovpad,ad2);
+          document.getElementById("z").appendChild(row);
+        }       
+            }
+
+
+        
+    </script>
+
+
+
+      
+
   </body>
 </html>
+
+
+
+
 
 
 
