@@ -5,8 +5,23 @@ from pyscript import document
 
 
 
+def translate_english1(event):
+    
+    input_text = document.querySelector("#zn1")
+    zn1 = input_text.value
+    zn1=zn1.split("\n")
+    
+    input_text = document.querySelector("#zn2")
+    zn2 = input_text.value
+    zn2=zn2.split("\n") 
+    
+    dlin1=len(zn1)
+    dlin2=len(zn2)
+    itog=((dlin1-1)*(dlin2-1)*0.00006)/60
 
-
+    
+    output_div = document.querySelector("#output5")
+    output_div.innerText =itog
 
 
 
@@ -128,8 +143,11 @@ def translate_english(event):
         index=max_summ.index(max_key)
         adresosnend.append(adresosn[add-1])
         adresosn2end.append(adresosn2[index])
-    
+    komment='Обработка '+ str(add111-1) +' адресов' + ' завершилась'
+    output_div = document.querySelector("#output4")
+    output_div.innerText =komment
 
+    
     output_div = document.querySelector("#output1")
     output_div.innerText =adresosnend
 
