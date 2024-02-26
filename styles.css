@@ -1,0 +1,94 @@
+input {
+  width: 40%;
+  padding: 5px 1px;
+  margin: 1px 5;
+  box-sizing: border-box;
+  text-align:center;
+
+
+
+  
+}
+button {
+  background-color: #00bfff;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+}
+.calc-result {
+	padding:10px 0;
+	font-size:16px;
+    background: #FF9; /* Фоновый цвет блока */
+    width:25px; /* Ширина блока */
+    height: 25px; /* Высота блока */
+    border:2px solid #777; /* Ширина вид и цвет рамки */
+  
+   
+
+}
+.field {clear:both; text-align:right; line-height:25px;}
+span {float:left; }
+.main {float:left}
+
+table {
+   border-collapse: collapse;
+   /*убираем пустые промежутки между ячейками*/
+   border: 1px solid grey;
+   /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
+
+}
+th {
+   border: 1px solid grey;
+
+}
+td {
+   border: 1px solid grey;
+}
+table {
+   border: 3px solid grey;
+}
+
+
+
+th, td {
+   padding: 10px 15px;
+   width:200px;
+   
+}
+div.outer{
+            width: 800px;
+            height: 400px;
+            margin: 0;
+            padding: 0;
+
+        }
+div.outer11{
+            width: 800px;
+            height: 400px;
+            margin: 0;
+            padding: 0;
+
+        }
+div.mann{
+            width: 800px;
+            height: 400px;
+            margin: 0;
+            padding: 0;
+
+        }
+textarea.layer1 {
+
+    padding: 5px; /* Поля вокруг текста */
+    float: left; /* Обтекание по правому краю */
+    width: 49%; /* Ширина слоя */
+   }
+textarea.layer2 {
+
+    padding: 5px; /* Поля вокруг текста */
+    width: 49%; /* Ширина слоя */
+    float: left; /* Обтекание по правому краю */
+}
