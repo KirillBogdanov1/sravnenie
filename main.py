@@ -142,7 +142,7 @@ def translate_english(event):
             
         index=max_summ.index(max_key)
         adresosnend.append(adresosn[add-1])
-        adresosn2end.append(adresosn2[index])
+        adresosn2end.append(ad2[index])
     komment='Обработка '+ str(add111-1) +' адресов' + ' завершилась'
     output_div = document.querySelector("#output4")
     output_div.innerText =komment
