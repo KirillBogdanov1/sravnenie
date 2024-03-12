@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from pyscript import document
-
+import re
 
 
 def translate_english1(event):
@@ -24,7 +24,6 @@ def translate_english1(event):
     output_div.innerText =itog
 
 
-
 def translate_english(event):
     input_text = document.querySelector("#zn1")
     zn1 = input_text.value
@@ -38,20 +37,24 @@ def translate_english(event):
     for i in zn1:
         add111+=1
         ad45=zn1
-        sum = []
-        qw=['ул.,','Санкт-Петербург,','г.','улица,','ул,','лит.','Лит.','пр-кт','город','ул.','улица','дом','литера','корпус']
+        sum555 = []
+        
+
+        qw=['ул.,','Санкт-Петербург,','г.','улица,','пос.','ул,','лит.','Лит.','пр-кт','город','ул.','улица','дом','литера','корпус','строение']
         for ii1 in qw :
             i=i.replace(ii1, "")
+        if i.startswith('19'):
+            i=i[6:]
             
 
         adresosn.append(i)
         k+=1
-        alp=['а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','ч','ц','ч','ш','щ','ъ','ы','ь','э','ю','я','1','2','3','4','5','6','7','8','9','0','А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я']   
+        alp=['а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','ч','ц','ч','ш','щ','ъ','ы','ь','э','ю','я','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я']   
         for word in alp:
             su=i.count(word)
-            sum.append(su)
+            sum555.append(su)
     
-        sum1="".join(str(x) for x in sum)
+        sum1="".join(str(x) for x in sum555)
         sum1111.append(sum1)
 
     sum1111.pop()
@@ -59,12 +62,10 @@ def translate_english(event):
     adresosn.pop()
 
 
-
     input_text = document.querySelector("#zn2")
     zn2 = input_text.value
     zn2=zn2.split("\n")
     
-
 
     add1112=0
     k=0
@@ -73,25 +74,27 @@ def translate_english(event):
     for i in zn2:
         add1112+=1
         ad455=zn2
-        sum = []
-        qw=['ул.,','Санкт-Петербург,','г.','улица,','ул,','лит.','Лит.','пр-кт','город','ул.','улица','дом','литера','корпус']
+        sum555 = []
+        qw=['ул.,','Санкт-Петербург,','г.','улица,','пос.','ул,','лит.','Лит.','пр-кт','город','ул.','улица','дом','литера','корпус','строение']
         for ii1 in qw :
             i=i.replace(ii1, "")
+        if i.startswith('19'):
+            i=i[6:]
+            
     
         adresosn2.append(i)
         k+=1
-        alp=['а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','ч','ц','ч','ш','щ','ъ','ы','ь','э','ю','я','1','2','3','4','5','6','7','8','9','0','А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я']   
+        alp=['а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','ч','ц','ч','ш','щ','ъ','ы','ь','э','ю','я','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100','А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я']    
         for word in alp:
             su=i.count(word)
-            sum.append(su)
+            sum555.append(su)
 
-        sum1="".join(str(x) for x in sum)
+        sum1="".join(str(x) for x in sum555)
         sum2222.append(sum1)
         
     sum2222.pop()
     zn2.pop()
     adresosn2.pop()
-
 
 
     adresosn2end = []
@@ -115,7 +118,7 @@ def translate_english(event):
             add1+=1
             i8=list(i3)
             su_buk = []
-            for i10 in list(range(0,76)):
+            for i10 in list(range(0,166)):
                 b0=int(i2[i10])-int(i8[i10])
                 
                 if b0<0 :
@@ -125,12 +128,41 @@ def translate_english(event):
 
                 su_buk.append(b0)
         
-            all_sum=(su_buk[0]+su_buk[1]+su_buk[2]+su_buk[3]+su_buk[4]+su_buk[5]+su_buk[6]+su_buk[7]+su_buk[8]+su_buk[9]+su_buk[10]+su_buk[11]+su_buk[12]+su_buk[13]+su_buk[14]+su_buk[15]+su_buk[16]+su_buk[17]+su_buk[18]+su_buk[19]+su_buk[20]+su_buk[21]+su_buk[22]+su_buk[23]+su_buk[24]+su_buk[25]+su_buk[26]+su_buk[27]+su_buk[28]+su_buk[29]+su_buk[30]+su_buk[31]+su_buk[32]+su_buk[33]+su_buk[34]+su_buk[35]+su_buk[36]+su_buk[37]+su_buk[38]+su_buk[39]+su_buk[40]+su_buk[41]+su_buk[42]+su_buk[43]+su_buk[44]+su_buk[45]+su_buk[46]+su_buk[47]+su_buk[48]+su_buk[49]+su_buk[50]+su_buk[51]+su_buk[52]+su_buk[53]+su_buk[54]+su_buk[55]+su_buk[56]+su_buk[57]+su_buk[58]+su_buk[59]+su_buk[60]+su_buk[61]+su_buk[62]+su_buk[63]+su_buk[64]+su_buk[65]+su_buk[66]+su_buk[67]+su_buk[68]+su_buk[69]+su_buk[70]+su_buk[71]+su_buk[72]+su_buk[73]+su_buk[75])/76
+            all_sum=int(sum(su_buk))/166
             max_summ.append(all_sum)
 
-        
+      
+        numbers = re.findall('\d+', adresosn[add-1])
+        numbers=''.join(numbers)
 
         max_key=min(max_summ)
+
+        add166=0
+        
+        for i9898 in max_summ:
+ 
+            add166+=1
+            if i9898==max_key:
+
+                numbers2 = re.findall('\d+', ad2[add166-1])
+                numbers2=''.join(numbers2)
+
+                if numbers==numbers2 :
+                    max_summ[add166-1]=max_key-0.001
+        max_key=min(max_summ)
+                    
+        add166=0
+        
+        for i9898 in max_summ:
+ 
+            add166+=1
+            if i9898==max_key:
+
+                if ad2[add166-1][-1]=="А":
+
+                    max_summ[add166-1]=max_key-0.01
+                    max_key=min(max_summ) 
+        
         max_keyend.append(round(max_key,3))
         ll=-1
         max_summ1=[]
@@ -156,8 +188,6 @@ def translate_english(event):
 
     output_div = document.querySelector("#output3")
     output_div.innerText =adresosn2end
-
-
     
 
 
