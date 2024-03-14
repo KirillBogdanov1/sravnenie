@@ -1,4 +1,4 @@
-input {
+ input {
   width: 40%;
   padding: 5px 1px;
   margin: 1px 5;
@@ -80,15 +80,3 @@ div.mann{
             padding: 0;
 
         }
-textarea.layer1 {
-
-    padding: 5px; /* Поля вокруг текста */
-    float: left; /* Обтекание по правому краю */
-    width: 49%; /* Ширина слоя */
-   }
-textarea.layer2 {
-
-    padding: 5px; /* Поля вокруг текста */
-    width: 49%; /* Ширина слоя */
-    float: left; /* Обтекание по правому краю */
-}
