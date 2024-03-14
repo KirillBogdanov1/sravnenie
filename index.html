@@ -10,8 +10,6 @@
       <script src="./jquery-3.6.3.js" ></script>
       <script src="compiled.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
    
   </head>
   <body>
@@ -21,19 +19,29 @@
 
     <td id="container">
        <br><textarea class="layer1" id="zn1" name="list1"  cols="60" rows="5" placeholder="вставьте первый список адресов"></textarea>
-
-       <textarea class="layer2" id="zn2" name="list1"  cols="60" rows="5" placeholder="вставьте второй список адресов"></textarea>
+       <p></p>
+       <br><textarea class="layer2" id="zn2" name="list1"  cols="60" rows="5" placeholder="вставьте второй список адресов"></textarea>
+       <p></p>    
     </td>
+
+
+
+
+        
     <button py-click="translate_english1">Время сравнения в минутах</button>      
+    <button  name="submit" py-click="translate_english0">Оптимальная точность при обработке данных</button>
     <div id="output5" ></div>
-    <button py-click="translate_english">Обработка данных</button>
     <div id="output4" ></div>
+    <button  name="submitt" py-click="translate_english">Максимальная точность при обработке данных</button>
+    <div id="output55" ></div>
+    <div id="output44" ></div>
     <button style="float: left"onclick="func()">Вывод результатов</button> 
     <div id="output1" style="display: none;"></div>
     <div id="output2" style="display: none;"></div>
     <div id="output3" style="display: none;"></div>
     <div id="result1" style="display: none;"></div>
     <div class="mann">
+  
       <table id="zZ" style="float: left">
 
         <TH >Адрес 1</TH> 
@@ -46,9 +54,7 @@
     </div>
       
     <script type="py" src="./main.py" config="./pyscript.json"></script>
-
-
-      
+    
     <script>
 
 
@@ -63,7 +69,6 @@
         var  t1factnew= txttt1.split(/\', '/);
                 
         let len = t1factnew.length;       
-
 
                 
         var e2 = document.getElementById("output2");
@@ -92,25 +97,16 @@
           sovpad.textContent = t2factnew[i];
           ad2.textContent =t3factnew[i] ;
 
-
           row.append(ad1, sovpad,ad2);
           document.getElementById("z").appendChild(row);
         }       
             }
-
-
-        
-    </script>
-
-
-
       
+    </script>
+   
 
   </body>
 </html>
-
-
-
 
 
 
