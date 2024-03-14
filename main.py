@@ -22,8 +22,8 @@ def translate_english1(event):
     
     dlin1=len(zn1)
     dlin2=len(zn2)
-    itog=((dlin1-1)*(dlin2-1)*0.0000105)/60
-    itog2=((dlin1-1)*(dlin2-1)*0.0000165)/60
+    itog=round(((dlin1-1)*(dlin2-1)*0.0000105)/60,1)
+    itog2=round(((dlin1-1)*(dlin2-1)*0.0000165)/60,1)
 
     
     output_div = document.querySelector("#output5")
